@@ -16,3 +16,5 @@ gem 'therubyracer'
 gem 'less-rails'
 gem 'less-rails-fontawesome'
 gem 'bootplus-rails'
+
+gem 'devise'

@@ -14,15 +14,24 @@
 
   <div class="masthead">
     <ul class="nav nav-pills pull-right">
-      <li class="active"><a href="#">Home</a></li>
-      <li><a href="#">
-        <i class="fa fa-sign-in fa-lg"></i>
-      </a></li>
+      
+      <% if user_signed_in? %>
+      <li class="active"><a href="#">Events</a></li>
+      <li><a href="#">Resources</a></li>
+      <li><%= link_to "Settings", edit_user_registration_path %></li>
+      <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+
+
+      <% end %>
     </ul>
     <h3 class="muted">Cupertino DECA</h3>
   </div>
 
   <hr>
+
+  <% flash.each do |name, msg| %>
+     <%= content_tag(:div, msg, class: "alert alert-#{name}") %>
+  <% end %>
 
   <%= yield %>
 </div>
