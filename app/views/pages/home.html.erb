@@ -1,3 +1,5 @@
+<% if !user_signed_in? %>
+
 <div class="jumbotron">
   <h1>Learn to market</h1>
   <p class="lead">Join Cupertino DECA for the skills you need to succeed, today.</p>
@@ -25,6 +27,13 @@
   </div>
 </div>
 
+<% else %>
+  
+  <div class="jumbotron">
+    <h2>No events to attend at this time.</h1>
+  </div>
+
+<% end %>
 <hr>
 
 <div class="footer">
