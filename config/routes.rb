@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
+  resources :events
+
   devise_for :users
   root 'pages#home'
 
-  get '/dashboard', controller: 'pages', action: 'dashboard'
-  get '/resources', controller: 'pages', action: 'resources'
+  get '/data', controller: 'pages', action: 'data'
 
 end

@@ -1,0 +1,35 @@
+<% if current_user.admin == true %> 
+  <div class="page-header">
+    <%= link_to new_event_path, :class => 'btn btn-primary' do %>
+      <span class="glyphicon glyphicon-plus"></span>
+      New Event
+    <% end %>
+    <h1>Listing events</h1>
+  </div>
+<% end %>
+
+  <div class="row">
+      <% @events.each do |event| %>
+        <div class="span3">
+         <div class="well" style="padding: 0px">
+          <%= link_to image_tag(event.img_url), event, width: '60px', class: 'img-square' %>
+           <h3><%= event.name %></h3>
+           <h5><%= event.start %> to <%= event.end %></h5>
+           
+
+           <p>
+            <a class="btn btn-primary" href="/events/<%= event.id %>/">View details &raquo;</a>
+            <a class="btn btn-success" href="#">Attend</a>
+           </p>
+         </div>
+        </div>
+      <% end %>
+  </div>
+
+</div>
+
+<style type="text/css">
+h1, h2, h3, h4, h5, h6, p {
+  padding: 10px;
+}
+</style>

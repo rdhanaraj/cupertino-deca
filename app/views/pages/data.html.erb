@@ -1,0 +1,38 @@
+<% if current_user.admin %>
+
+  <h3>Users</h3>
+  <table class="table table-hover">
+    <th>Name</th>
+    <th>Surname</th>
+    <th>Email</th>
+    <th>Grade</th>
+    <% for user in @users %>
+    <tr>
+      <td><%= user.name %></td>
+      <td><%= user.surname %></td>
+      <td><%= user.email%></td>
+      <td><%= user.grade%></td>
+    </tr>
+    <% end %>
+  </table>
+
+  <% for item in @events %>
+    <h3><%= item.title%></h3>
+    <table class="table table-hover">
+      <th>Name</th>
+      <th>Email</th>
+      <th>Grade</th>
+      <% for user in item.users %>
+      <tr>
+        <td><%= user.name %> <%= user.surname %></td>
+        <td><%= user.email%></td>
+        <td><%= user.grade%></td>
+      </tr>
+      <% end %>
+    </table>
+  <% end %>
+
+
+<% else %>
+  Admin users only.
+<% end %>

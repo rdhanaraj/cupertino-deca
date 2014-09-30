@@ -16,8 +16,7 @@
     <ul class="nav nav-pills pull-right">
       
       <% if user_signed_in? %>
-      <li><a href="/">Events</a></li>
-      <li><%= link_to "Resources", '/resources' %></li>
+      <li><a href="/events">Events</a></li>
       <li><%= link_to "Settings", edit_user_registration_path %></li>
       <li>
         <%= link_to "Members", '/dashboard' if current_user.admin %>

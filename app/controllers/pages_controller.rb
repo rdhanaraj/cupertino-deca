@@ -2,10 +2,8 @@ class PagesController < ApplicationController
   def home
   end
 
-  def dashboard
+  def data
+    @events = Event.all 
     @users = User.all
-  end
-
-  def resources
   end
 end
