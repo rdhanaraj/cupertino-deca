@@ -8,28 +8,25 @@
   </div>
 <% end %>
 
-  <div class="row">
-      <% @events.each do |event| %>
-        <div class="span3">
-         <div class="well" style="padding: 0px">
-          <%= link_to image_tag(event.img_url), event, width: '60px', class: 'img-square' %>
-           <h3><%= event.name %></h3>
-           <h5><%= event.start %> to <%= event.end %></h5>
-           
 
-           <p>
-            <a class="btn btn-primary" href="/events/<%= event.id %>/">View details &raquo;</a>
-            <a class="btn btn-success" href="#">Attend</a>
-           </p>
-         </div>
-        </div>
-      <% end %>
+<% @events.each do |event| %>     
+  <div class="well" style="padding: 0px">
+    <div class="row">
+      <div class="span2">
+        <%= image_tag("event_#{event.id}.jpg", class: 'img-square img-thumbnail') %>
+      </div>
+
+      <div class="span5" style="margin-left:15px; margin-top:10px">
+        <strong><p style="font-size:18px;"><%= event.name %></p></strong>
+        <strong><p><%= event.start %> to <%= event.end %></p></strong>
+        <p><%= event.description %></p>
+
+        <p>
+         <a class="btn btn-success" href="/attend/<%= event.id %>">Attend</a>
+         <a class="btn btn-default" href="/events">Details</a>
+        </p>
+      </div>
+    </div>
+
   </div>
-
-</div>
-
-<style type="text/css">
-h1, h2, h3, h4, h5, h6, p {
-  padding: 10px;
-}
-</style>
+<% end %>

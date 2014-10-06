@@ -61,6 +61,22 @@ class EventsController < ApplicationController
     end
   end
 
+  def attend
+    if current_user.name.blank? or current_user.surname.blank? or current_user.grade.blank?
+      flash[:alert] = "Finish filling out your settings before signing up for a conference!"
+      redirect_to edit_user_registration_path
+    else
+      attendance = Attendance.create
+      attendance.user_id = current_user.id
+      attendance.event_id = params[:event_id]
+      attendance.save!
+
+      flash[:notice] = "You have successfully signed up for #{Event.find(params[:event_id]).name}"
+
+      redirect_to '/events'
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_event
@@ -69,6 +85,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:name, :start, :end, :description, :img_url)
+      params.require(:event).permit(:name, :start, :end, :description, :img_url, :event_id)
     end
 end
