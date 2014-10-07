@@ -1,14 +1,3 @@
-<% if current_user.admin == true %> 
-  <div class="page-header">
-    <%= link_to new_event_path, :class => 'btn btn-primary' do %>
-      <span class="glyphicon glyphicon-plus"></span>
-      New Event
-    <% end %>
-    <h1>Listing events</h1>
-  </div>
-<% end %>
-
-
 <% @events.each do |event| %>     
   <div class="well" style="padding: 0px">
     <div class="row">
@@ -22,11 +11,17 @@
         <p><%= event.description %></p>
 
         <p>
-         <a class="btn btn-success" href="/attend/<%= event.id %>">Attend</a>
-         <a class="btn btn-default" href="/events">Details</a>
+          <% if !event.users.include?(current_user) %>
+            <%= link_to 'Register', "/attend/#{event.id}", confirm: '', class: 'btn btn-success' %>
+            <a class="btn btn-primary" style="cursor: default;">Details</a>
+          <% else %>
+            <a class="btn btn-default" style="cursor: default;">You are signed up.</a>
+          <% end %>
+
         </p>
       </div>
     </div>
 
   </div>
 <% end %>
+

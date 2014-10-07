@@ -8,5 +8,6 @@ class PagesController < ApplicationController
   def data
     @events = Event.all 
     @users = User.all
+    @attendances = Attendance.all
   end
 end

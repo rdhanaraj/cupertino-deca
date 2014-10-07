@@ -4,6 +4,7 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
+    @attendances = Attendance.all
     @events = Event.all
   end
 
@@ -71,7 +72,7 @@ class EventsController < ApplicationController
       attendance.event_id = params[:event_id]
       attendance.save!
 
-      flash[:notice] = "You have successfully signed up for #{Event.find(params[:event_id]).name}"
+      flash[:notice] = "You have successfully signed up for #{Event.find(params[:event_id]).name}."
 
       redirect_to '/events'
     end
