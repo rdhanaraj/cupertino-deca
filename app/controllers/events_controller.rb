@@ -72,7 +72,7 @@ class EventsController < ApplicationController
       attendance.event_id = params[:event_id]
       attendance.save!
 
-      flash[:notice] = "You have successfully signed up for #{Event.find(params[:event_id]).name}."
+      flash[:notice] = "You have successfully signed up for #{Event.find(params[:event_id]).name}. Submit checks to an officer or Ms. Balga."
 
       redirect_to '/events'
     end
