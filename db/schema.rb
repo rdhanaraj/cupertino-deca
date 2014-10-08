@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141005205740) do
+ActiveRecord::Schema.define(version: 20141008054720) do
 
   create_table "attendances", force: true do |t|
     t.integer  "user_id"
@@ -50,6 +50,14 @@ ActiveRecord::Schema.define(version: 20141005205740) do
     t.string   "name"
     t.string   "surname"
     t.boolean  "admin"
+    t.integer  "student_id"
+    t.string   "birthday"
+    t.boolean  "gender"
+    t.string   "address"
+    t.string   "phone_number"
+    t.string   "parent_name"
+    t.string   "parent_email"
+    t.string   "parent_phone_number"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

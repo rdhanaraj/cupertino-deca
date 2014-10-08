@@ -8,26 +8,75 @@
   <div class="panel-body">
     <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
       <%= devise_error_messages! %>
+      <div class="row">
 
+      <div class="span3" style="">
       <div class="form-group">
         <%= f.label :email %>
-        <%= f.email_field :email, class: "form-control", :autofocus => true %>
+        <%= f.email_field :email, class: "form-control" %>
       </div>
 
       <div class="form-group">
-        <%= f.label :name %>
+        <%= f.label 'First name' %>
         <%= f.text_field :name, class: "form-control" %>
       </div>
 
       <div class="form-group">
-        <%= f.label :surname %>
+        <%= f.label 'Last name' %>
         <%= f.text_field :surname, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label 'Student ID' %>
+        <%= f.text_field :student_id, class: "form-control" %>
       </div>
 
       <div class="form-group">
         <%= f.label :grade %>
         <%= f.text_field :grade, class: "form-control" %>
       </div>
+
+      <div class="form-group">
+        <%= f.label 'Birthday (MM/DD/YYYY)' %>
+        <%= f.text_field :birthday, class: "form-control" %>
+      </div>
+      </div>
+
+      <div class="span3">
+      <div class="form-group">
+        <%= f.label :address %>
+        <%= f.text_field :address, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label 'Phone number (XXX)XXX-XXXX' %>
+        <%= f.text_field :phone_number, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label 'Gender (M/F)' %>
+        <%= f.text_field :gender, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :parent_name %>
+        <%= f.text_field :parent_name, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :parent_email %>
+        <%= f.text_field :parent_email, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label 'Parent phone number (XXX)XXX-XXXX' %>
+        <%= f.text_field :parent_phone_number, class: "form-control" %>
+      </div>
+      </div>
+      </div>
+
+
+      <hr>
 <!-- 
       <div class="form-group">
         <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br>

@@ -63,7 +63,8 @@ class EventsController < ApplicationController
   end
 
   def attend
-    if current_user.name.blank? or current_user.surname.blank? or current_user.grade.blank?
+    u = current_user
+    if current_user.name.blank? or current_user.surname.blank? or current_user.grade.blank? or u.student_id.blank? or u.gender.blank? or u.birthday.blank? or u.parent_email.blank? or u.parent_phone_number.blank? or u.address.blank? or u.parent_name.blank?
       flash[:alert] = "Finish filling out your settings before signing up for a conference!"
       redirect_to edit_user_registration_path
     else
