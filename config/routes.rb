@@ -5,5 +5,7 @@ Rails.application.routes.draw do
   root 'pages#home'
 
   get '/data', controller: 'pages', action: 'data'
+  get '/naga', controller: 'pages', action: 'members'
+
   get '/attend/:event_id', controller: 'events', action: 'attend'
 end

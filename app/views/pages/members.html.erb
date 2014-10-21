@@ -1,0 +1,36 @@
+<% if !@users.blank? %>
+  <% for user in @users %>
+
+    <% if Event.first.users.include?(current_user) %>
+    <div class="well">
+      Name: <strong><%= user.name + " " + user.surname %></strong><br>
+      Email: <strong><%= user.email %></strong><br>
+      Grade: <strong><%= user.grade %></strong><br>
+
+      <br>
+
+      Student ID: <strong><%= user.student_id %></strong><br>
+      Birthday: <strong><%= user.birthday %></strong><br>
+
+      <br>
+
+      Gender: <strong><%= user.gender %></strong><br>
+      Address: <strong><%= user.address %></strong><br>
+      Phone Number: <strong><%= user.phone_number %></strong><br>
+
+      <br>
+
+      Parent Name: <strong><%= user.parent_name %></strong><br>
+      Parent Email: <strong><%= user.parent_email %></strong><br>
+      Parent Number: <strong><%= user.parent_phone_number %></strong><br>
+
+      <br>
+      Last signed in: <strong><%= user.last_sign_in_at %></strong><br>
+      Account created at: <strong><%= user.created_at %></strong><br>
+    </div>
+
+    <hr>
+  <% end end %>
+<% else %>
+  
+<% end %>

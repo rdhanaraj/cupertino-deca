@@ -10,4 +10,10 @@ class PagesController < ApplicationController
     @users = User.all
     @attendances = Attendance.all
   end
+
+  def members
+    @events = Event.all 
+    @users = User.all
+    @attendances = Attendance.all
+  end
 end
