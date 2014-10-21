@@ -1,7 +1,7 @@
-<% if !@users.blank? %>
-  <% for user in @users %>
+<% if !@attendances.blank? %>
+  <% for attendance in @attendances %>
 
-    <% if Event.first.users.include?(current_user) %>
+    <% user = attendance.user %>
     <div class="well">
       Name: <strong><%= user.name + " " + user.surname %></strong><br>
       Email: <strong><%= user.email %></strong><br>
@@ -30,7 +30,7 @@
     </div>
 
     <hr>
-  <% end end %>
+  <% end %>
 <% else %>
   
 <% end %>
