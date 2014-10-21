@@ -1,4 +1,4 @@
-<h3>Total of <% attendances.all.count %> attendees</h3>
+<h3>Total attendees: <% @attendances.all.count %></h3>
 
 <% if !@attendances.blank? %>
   <% for attendance in @attendances %>
