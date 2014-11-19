@@ -4,7 +4,7 @@
   <title>Cupertino DECA</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
-  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
@@ -17,6 +17,7 @@
       
       <% if user_signed_in? %>
       <li><a href="/events">Events</a></li>
+      <li><a href="/resources">Resources</a></li>
       <li><%= link_to "Settings", edit_user_registration_path %></li>
       <li>
         <%= link_to "Data", '/data' if current_user.admin %>

@@ -1,0 +1,37 @@
+<select>
+  <option>Plans</option>
+  <option>Roleplays</option>
+  <option>Exams</option>
+  <option>Miscellaneous</option>
+</select>
+
+<hr style="margin-top: 10px">
+
+<% for resource in @resources %>
+  <div class="well <%= resourceType resource.title %>">
+    <strong><p style="font-size:18px;"><a href="<%= resource.link %>"><%= resource.title %></p></a></strong>
+    <p><%= resource.description %></p>
+  </div>
+<% end %>
+
+<style type="text/css">
+
+  a:hover {
+    text-decoration: none;
+  }
+
+</style>
+
+<script type="text/javascript">
+
+  $(".well").hide();
+  $(".Plans").show();
+
+  $("select").change(function() {
+    var className = $("select option:selected").text();
+
+    $(".well").hide();
+    $("." + className).show();
+  });
+
+</script>

@@ -16,4 +16,8 @@ class PagesController < ApplicationController
     @users = User.all
     @attendances = Attendance.all
   end
+
+  def resources
+    @resources = Resource.all 
+  end
 end
